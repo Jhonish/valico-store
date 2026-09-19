@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valico — Make Your Room Feel Different</title>
+  <meta name="description" content="Valico creates atmospheric home essentials designed to transform your space.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d0d0d;
+      color: #f5f2ed;
+      line-height: 1.6;
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      border-bottom: 1px solid #252525;
+      background: #0d0d0d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      letter-spacing: 5px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at center, #3b2118 0%, #17100d 35%, #0d0d0d 70%);
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: #d99b68;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto 35px;
+      color: #c8c4bf;
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #f1e4d5;
+      color: #111;
+      padding: 15px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #fff;
+    }
+
+    .product {
+      padding: 100px 7%;
+      background: #f1ede7;
+      color: #171717;
+    }
+
+    .product-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .product-visual {
+      min-height: 500px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255,180,100,.65), transparent 20%),
+        linear-gradient(145deg, #2b1711, #080808);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0,0,0,.2);
+    }
+
+    .product-visual span {
+      font-size: 100px;
+      filter: drop-shadow(0 0 30px #e8893c);
+    }
+
+    .product h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .product p {
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 25px 0;
+    }
+
+    .features {
+      padding: 100px 7%;
+      background: #111;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 42px;
+      margin-bottom: 60px;
+    }
+
+    .feature-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      padding: 35px 25px;
+      border: 1px solid #292929;
+      border-radius: 20px;
+      background: #161616;
+    }
+
+    .feature-icon {
+      font-size: 35px;
+      margin-bottom: 18px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .story {
+      padding: 110px 20px;
+      text-align: center;
+      background: #0d0d0d;
+    }
+
+    .story-content {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .story h2 {
+      font-size: 45px;
+      margin-bottom: 25px;
+    }
+
+    .story p {
+      color: #aaa;
+      font-size: 17px;
+    }
+
+    footer {
+      border-top: 1px solid #252525;
+      padding: 35px 7%;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-visual {
+        min-height: 350px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">VALICO</div>
+    <a href="#product">The Product</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Atmosphere, reimagined.</div>
+      <h1>Make your room feel different.</h1>
+      <p>
+        Light, mist and atmosphere in one small piece of your space.
+        Designed for nights when ordinary just isn't enough.
+      </p>
+      <a class="button" href="#product">Discover Valico</a>
+    </div>
+  </section>
+
+  <section class="product" id="product">
+    <div class="product-grid">
+
+      <div class="product-visual">
+        <span>🌋</span>
+      </div>
+
+      <div>
+        <h2>The Volcano</h2>
+        <p>
+          A mesmerising mist effect combined with ambient lighting,
+          designed to turn an ordinary room into something completely different.
+        </p>
+
+        <p>
+          Add your favourite fragrance and let the atmosphere do the rest.
+        </p>
+
+        <div class="price">£24.99</div>
+
+        <a class="button" href="#">
+          Coming Soon
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>More than a diffuser.</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="feature-icon">💨</div>
+        <h3>Mist Effect</h3>
+        <p>
+          A mesmerising mist display that gives your space a completely
+          different atmosphere.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌈</div>
+        <h3>Ambient Light</h3>
+        <p>
+          Soft lighting designed to transform your room after dark.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌿</div>
+        <h3>Your Atmosphere</h3>
+        <p>
+          Use suitable fragrance oils to create an atmosphere that's yours.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="story-content">
+      <h2>Small object. Big atmosphere.</h2>
+      <p>
+        Valico exists to make everyday spaces feel a little more special.
+        We're starting with one product — and building from there.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Valico</div>
+    <div>Made for your space.</div>
+  </footer>
+
+</body>
+</html>
