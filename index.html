@@ -52,7 +52,9 @@
       text-align: center;
       padding: 80px 20px;
       background:
-        radial-gradient(circle at center, #3b2118 0%, #17100d 35%, #0d0d0d 70%);
+        linear-gradient(rgba(10,8,6,.6), rgba(10,8,6,.75)),
+        url('https://images.unsplash.com/photo-1763254123615-c51d91d83b7b?q=75&w=2000&auto=format&fit=crop')
+          center 55% / cover no-repeat;
     }
 
     .hero-content {
@@ -115,19 +117,14 @@
     .product-visual {
       min-height: 500px;
       border-radius: 28px;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(255,180,100,.65), transparent 20%),
-        linear-gradient(145deg, #2b1711, #080808);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
-      box-shadow: 0 30px 70px rgba(0,0,0,.2);
     }
 
-    .product-visual span {
-      font-size: 100px;
-      filter: drop-shadow(0 0 30px #e8893c);
+    .product-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .product h2 {
@@ -145,6 +142,34 @@
       font-size: 28px;
       font-weight: 700;
       margin: 25px 0;
+    }
+
+    .gallery {
+      padding: 90px 7%;
+      background: #0d0d0d;
+    }
+
+    .gallery h2 {
+      font-size: 32px;
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    .gallery-scroll img {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
     }
 
     .features {
@@ -171,11 +196,6 @@
       border: 1px solid #292929;
       border-radius: 20px;
       background: #161616;
-    }
-
-    .feature-icon {
-      font-size: 35px;
-      margin-bottom: 18px;
     }
 
     .feature h3 {
@@ -231,6 +251,11 @@
         min-height: 350px;
       }
 
+      .gallery-scroll img {
+        width: 240px;
+        height: 240px;
+      }
+
       footer {
         flex-direction: column;
         gap: 10px;
@@ -262,11 +287,11 @@
     <div class="product-grid">
 
       <div class="product-visual">
-        <span>🌋</span>
+        <img src="assets/gallery-1.webp" alt="Valico aroma diffuser glowing with coloured mist">
       </div>
 
       <div>
-        <h2>The Volcano</h2>
+        <h2>Aroma Diffuser</h2>
         <p>
           A mesmerising mist effect combined with ambient lighting,
           designed to turn an ordinary room into something completely different.
@@ -286,13 +311,21 @@
     </div>
   </section>
 
+  <section class="gallery">
+    <h2>See it in your space</h2>
+    <div class="gallery-scroll">
+      <img src="assets/gallery-1.webp" alt="Aroma diffuser glowing with coloured mist">
+      <img src="assets/gallery-3.webp" alt="Aroma diffuser on a table at night">
+      <img src="assets/gallery-2.webp" alt="Aroma diffuser opened, showing the fragrance reservoir">
+    </div>
+  </section>
+
   <section class="features">
     <h2>More than a diffuser.</h2>
 
     <div class="feature-grid">
 
       <div class="feature">
-        <div class="feature-icon">💨</div>
         <h3>Mist Effect</h3>
         <p>
           A mesmerising mist display that gives your space a completely
@@ -301,7 +334,6 @@
       </div>
 
       <div class="feature">
-        <div class="feature-icon">🌈</div>
         <h3>Ambient Light</h3>
         <p>
           Soft lighting designed to transform your room after dark.
@@ -309,7 +341,6 @@
       </div>
 
       <div class="feature">
-        <div class="feature-icon">🌿</div>
         <h3>Your Atmosphere</h3>
         <p>
           Use suitable fragrance oils to create an atmosphere that's yours.
