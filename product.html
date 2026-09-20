@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aroma Diffuser | Valico</title>
+  <title>Aroma Diffuser — Valico</title>
   <meta name="description" content="The Valico Aroma Diffuser: mist and ambient light in one small object, designed to make your room feel different.">
   <style>
     * {
@@ -19,9 +19,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     nav {
       height: 72px;
@@ -49,6 +47,8 @@
       text-decoration: none;
       font-size: 14px;
     }
+
+    /* ---------- gallery + buy panel ---------- */
 
     .buy {
       padding: 70px 7% 100px;
@@ -112,7 +112,7 @@
     .buy-info h1 {
       font-size: clamp(34px, 4vw, 46px);
       line-height: 1.05;
-      letter-spacing: 1px;
+      letter-spacing: -1px;
       margin-bottom: 18px;
     }
 
@@ -159,6 +159,39 @@
       margin-bottom: 26px;
     }
 
+    .variant-row {
+      margin-bottom: 26px;
+    }
+
+    .variant-label {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .variant-options {
+      display: flex;
+      gap: 10px;
+    }
+
+    .variant-btn {
+      padding: 10px 22px;
+      border-radius: 30px;
+      border: 1px solid #d8d0c2;
+      background: transparent;
+      color: #171717;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+
+    .variant-btn.active {
+      background: #171717;
+      border-color: #171717;
+      color: #f5f2ed;
+    }
+
     .qty-control {
       display: flex;
       align-items: center;
@@ -202,16 +235,15 @@
       background: #000;
     }
 
-    .button.full {
-      width: 100%;
-      text-align: center;
-    }
+    .button.full { width: 100%; text-align: center; }
 
     .note {
       margin-top: 16px;
       font-size: 13px;
       color: #8a8578;
     }
+
+    /* ---------- lifestyle break ---------- */
 
     .lifestyle {
       position: relative;
@@ -240,6 +272,8 @@
       font-size: 16px;
       max-width: 42ch;
     }
+
+    /* ---------- specs ---------- */
 
     .specs {
       padding: 100px 7%;
@@ -291,6 +325,8 @@
       width: 40%;
     }
 
+    /* ---------- faq ---------- */
+
     .faq {
       padding: 100px 7%;
       background: #111;
@@ -319,9 +355,7 @@
       list-style: none;
     }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
+    summary::-webkit-details-marker { display: none; }
 
     details p {
       color: #999;
@@ -339,8 +373,7 @@
     }
 
     @media (max-width: 750px) {
-      .buy-grid,
-      .specs-grid {
+      .buy-grid, .specs-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
@@ -367,7 +400,6 @@
         <div class="gallery-main">
           <img id="mainImage" src="assets/gallery-1-1.webp" alt="Valico aroma diffuser glowing with coloured mist">
         </div>
-
         <div class="gallery-thumbs">
           <img src="assets/gallery-1-1.webp" alt="" class="active" onclick="setMain(this)">
           <img src="assets/gallery-3-1.webp" alt="" onclick="setMain(this)">
@@ -390,8 +422,16 @@
           <li>Coloured mist with warm ambient glow</li>
           <li>Quiet ultrasonic operation, safe to run overnight</li>
           <li>Compact enough for a nightstand or shelf</li>
-          <li>Works with any water based fragrance oil</li>
+          <li>Works with any water-based fragrance oil</li>
         </ul>
+
+        <div class="variant-row">
+          <div class="variant-label">Colour</div>
+          <div class="variant-options">
+            <button type="button" class="variant-btn active" data-variant="white" onclick="selectVariant('white', this)">White</button>
+            <button type="button" class="variant-btn" data-variant="black" onclick="selectVariant('black', this)">Black</button>
+          </div>
+        </div>
 
         <div class="qty-row">
           <div class="qty-control">
@@ -401,8 +441,7 @@
           </div>
         </div>
 
-        <button class="button full" disabled>Coming Soon</button>
-        <div class="note">Checkout opens shortly. Join the list to be notified.</div>
+        <button class="button full" onclick="goToBuy()">Buy Now</button>
       </div>
 
     </div>
@@ -420,25 +459,21 @@
 
   <section class="specs">
     <div class="specs-grid">
-
       <div class="specs-photo">
         <img src="https://images.unsplash.com/photo-1507184131965-ecd6edd39b17?q=75&w=1400&auto=format&fit=crop" alt="Reading in bed beside a warm ambient light">
       </div>
-
       <div>
         <h2>Specifications</h2>
-
         <table class="specs-table">
           <tr><td>Capacity</td><td>130ml water tank</td></tr>
           <tr><td>Runtime</td><td>Up to 6 hours continuous mist</td></tr>
           <tr><td>Power</td><td>USB, 5V</td></tr>
-          <tr><td>Light modes</td><td>7 colour ambient glow, adjustable</td></tr>
+          <tr><td>Light modes</td><td>7-colour ambient glow, adjustable</td></tr>
           <tr><td>Noise level</td><td>Under 35dB</td></tr>
           <tr><td>Dimensions</td><td>9.5 × 9.5 × 8cm</td></tr>
           <tr><td>In the box</td><td>Diffuser, USB cable, measuring cup</td></tr>
         </table>
       </div>
-
     </div>
   </section>
 
@@ -448,19 +483,18 @@
 
       <details open>
         <summary>What fragrances can I use?</summary>
-        <p>Any water based fragrance or essential oil. Add a few drops directly to the water tank before switching it on.</p>
+        <p>Any water-based fragrance or essential oil. Add a few drops directly to the water tank before switching it on.</p>
       </details>
 
       <details>
         <summary>Is it safe to leave running overnight?</summary>
-        <p>Yes. It auto shuts off once the water tank runs dry, so it's designed to run safely while you sleep.</p>
+        <p>Yes — it auto-shuts off once the water tank runs dry, so it's designed to run safely while you sleep.</p>
       </details>
 
       <details>
         <summary>How long does shipping take?</summary>
         <p>Shipping details will be confirmed at checkout once orders open.</p>
       </details>
-
     </div>
   </section>
 
@@ -472,19 +506,33 @@
   <script>
     function setMain(el) {
       document.getElementById('mainImage').src = el.src;
-
       document.querySelectorAll('.gallery-thumbs img').forEach(function (img) {
         img.classList.remove('active');
       });
-
       el.classList.add('active');
     }
 
     var qty = 1;
-
     function changeQty(delta) {
       qty = Math.max(1, qty + delta);
       document.getElementById('qty').textContent = qty;
+    }
+
+    var selectedVariant = 'white';
+    function selectVariant(variant, el) {
+      selectedVariant = variant;
+      document.querySelectorAll('.variant-btn').forEach(function (btn) {
+        btn.classList.remove('active');
+      });
+      el.classList.add('active');
+    }
+
+    function goToBuy() {
+      var params = new URLSearchParams({
+        variant: selectedVariant,
+        quantity: qty
+      });
+      window.location.href = 'buy.html?' + params.toString();
     }
   </script>
 
