@@ -63,8 +63,6 @@
       align-items: start;
     }
 
-    /* ---------- form column ---------- */
-
     .form-card h1 {
       font-size: clamp(30px, 4vw, 40px);
       letter-spacing: -1px;
@@ -146,8 +144,6 @@
     .field-error.show {
       display: block;
     }
-
-    /* ---------- summary column ---------- */
 
     .summary-card {
       background: #fff;
@@ -316,184 +312,319 @@
 
       <div class="form-card">
         <div class="eyebrow">Valico</div>
-        <h1>Your details</h1>
-        <p>Enter your details below. Nothing is charged on this page yet.</p>
+        <h1>Delivery details</h1>
+        <p>Enter your delivery details below.</p>
 
         <form id="orderForm" novalidate>
-          <div class="field">
-            <label for="fullName">Full name</label>
-            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
-          </div>
-
-          <div class="field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-          </div>
 
           <div class="field">
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" autocomplete="address-line1" required>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              autocomplete="address-line1"
+              required
+            >
           </div>
 
           <div class="field-row">
+
             <div class="field">
               <label for="city">Town / City</label>
-              <input type="text" id="city" name="city" autocomplete="address-level2" required>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                autocomplete="address-level2"
+                required
+              >
             </div>
+
             <div class="field">
               <label for="postcode">Postcode</label>
-              <input type="text" id="postcode" name="postcode" autocomplete="postal-code" required>
+              <input
+                type="text"
+                id="postcode"
+                name="postcode"
+                autocomplete="postal-code"
+                required
+              >
             </div>
+
           </div>
 
           <div class="field">
             <label for="country">Country</label>
-            <input type="text" id="country" name="country" autocomplete="country-name" required value="United Kingdom">
+            <input
+              type="text"
+              id="country"
+              name="country"
+              autocomplete="country-name"
+              required
+              value="United Kingdom"
+            >
           </div>
 
           <div class="confirm-row">
-            <input type="checkbox" id="confirmDetails" name="confirmDetails" required>
-            <label for="confirmDetails">I confirm the details above are correct.</label>
+            <input
+              type="checkbox"
+              id="confirmDetails"
+              name="confirmDetails"
+              required
+            >
+
+            <label for="confirmDetails">
+              I confirm the details above are correct.
+            </label>
           </div>
-          <div class="field-error" id="formError">Please fill in every field and confirm your details before continuing.</div>
+
+          <div class="field-error" id="formError">
+            Please fill in every field and confirm your details before continuing.
+          </div>
+
         </form>
       </div>
 
       <div class="summary-card">
+
         <div class="eyebrow">Order summary</div>
+
         <h2>Aroma Diffuser</h2>
 
         <div class="summary-product">
-          <img src="assets/gallery-1-1.webp" alt="Valico aroma diffuser">
+
+          <img
+            src="assets/gallery-1-1.webp"
+            alt="Valico aroma diffuser"
+          >
+
           <div>
             <div class="name">Aroma Diffuser</div>
-            <div class="variant">Colour: <span id="variantLabel">White</span></div>
+
+            <div class="variant">
+              Colour:
+              <span id="variantLabel">White</span>
+            </div>
           </div>
+
         </div>
 
         <div class="summary-row">
+
           <span>Quantity</span>
+
           <div class="qty-control">
-            <button type="button" onclick="changeQty(-1)">&minus;</button>
+
+            <button
+              type="button"
+              onclick="changeQty(-1)"
+            >
+              &minus;
+            </button>
+
             <span id="qty">1</span>
-            <button type="button" onclick="changeQty(1)">&plus;</button>
+
+            <button
+              type="button"
+              onclick="changeQty(1)"
+            >
+              &plus;
+            </button>
+
           </div>
+
         </div>
 
         <div class="summary-row">
+
           <span>Price</span>
+
           <span id="unitPrice">£24.99</span>
+
         </div>
 
         <div class="summary-row total">
+
           <span>Subtotal</span>
+
           <span id="subtotal">£24.99</span>
+
         </div>
 
-        <button type="button" class="button" id="continueBtn" onclick="continueToPayment()">Continue to Payment</button>
-        <div class="payment-note" id="paymentNote">Payment setup is coming soon.</div>
+        <button
+          type="button"
+          class="button"
+          id="continueBtn"
+          onclick="continueToPayment()"
+        >
+          Continue to Payment
+        </button>
+
+        <div
+          class="payment-note"
+          id="paymentNote"
+        >
+          Payment setup is coming soon.
+        </div>
+
       </div>
 
     </div>
   </section>
 
   <footer>
+
     <div>© 2026 Valico</div>
+
     <div>Made for your space.</div>
+
   </footer>
 
   <script>
+
     var UNIT_PRICE = 24.99;
 
     function getParams() {
+
       var params = new URLSearchParams(window.location.search);
+
       var variant = (params.get('variant') || 'white').toLowerCase();
-      if (variant !== 'white' && variant !== 'black') variant = 'white';
+
+      if (variant !== 'white' && variant !== 'black') {
+        variant = 'white';
+      }
 
       var quantity = parseInt(params.get('quantity'), 10);
-      if (!quantity || quantity < 1) quantity = 1;
 
-      return { variant: variant, quantity: quantity };
+      if (!quantity || quantity < 1) {
+        quantity = 1;
+      }
+
+      return {
+        variant: variant,
+        quantity: quantity
+      };
+
     }
 
     var state = getParams();
 
     function renderVariant() {
-      var label = state.variant === 'black' ? 'Black' : 'White';
+
+      var label = state.variant === 'black'
+        ? 'Black'
+        : 'White';
+
       document.getElementById('variantLabel').textContent = label;
+
     }
 
     function renderQty() {
+
       document.getElementById('qty').textContent = state.quantity;
+
       var subtotal = UNIT_PRICE * state.quantity;
-      document.getElementById('subtotal').textContent = '£' + subtotal.toFixed(2);
+
+      document.getElementById('subtotal').textContent =
+        '£' + subtotal.toFixed(2);
+
     }
 
     function changeQty(delta) {
-      state.quantity = Math.max(1, state.quantity + delta);
+
+      state.quantity = Math.max(
+        1,
+        state.quantity + delta
+      );
+
       renderQty();
+
     }
 
     function formIsValid() {
+
       var form = document.getElementById('orderForm');
+
       return form.checkValidity();
+
     }
 
     function continueToPayment() {
-      var errorEl = document.getElementById('formError');
-      var noteEl = document.getElementById('paymentNote');
+
+      var errorEl =
+        document.getElementById('formError');
+
+      var noteEl =
+        document.getElementById('paymentNote');
 
       if (!formIsValid()) {
+
         errorEl.classList.add('show');
+
         noteEl.classList.remove('show');
+
         return;
+
       }
 
       errorEl.classList.remove('show');
 
       var orderPayload = {
+
         variant: state.variant,
+
         quantity: state.quantity,
-        customer: {
-          fullName: document.getElementById('fullName').value,
-          email: document.getElementById('email').value,
-          address: document.getElementById('address').value,
-          city: document.getElementById('city').value,
-          postcode: document.getElementById('postcode').value,
-          country: document.getElementById('country').value
+
+        delivery: {
+
+          address:
+            document.getElementById('address').value,
+
+          city:
+            document.getElementById('city').value,
+
+          postcode:
+            document.getElementById('postcode').value,
+
+          country:
+            document.getElementById('country').value
+
         }
+
       };
 
       /*
-        PLACEHOLDER: this is where the Vercel server side API call goes.
+        PLACEHOLDER
 
-        Later, this function will POST orderPayload to a Vercel API route,
-        e.g. /api/create-checkout-session (endpoint name to be confirmed),
-        which will:
-          1. Look up the correct CJ SKU on the server using state.variant
-             (the SKU values never appear in this file).
-          2. Create a Stripe Checkout Session using the Stripe secret key,
-             which is stored only as a Vercel environment variable.
-          3. Return a Stripe Checkout URL for the browser to redirect to.
+        Later this will send orderPayload
+        to your Vercel server API.
 
-        Example of what that call will look like once the API exists:
+        The server will handle:
 
-        fetch('/api/create-checkout-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(orderPayload)
-        })
-          .then(function (res) { return res.json(); })
-          .then(function (data) {
-            window.location.href = data.checkoutUrl;
-          });
+        1. Selecting the correct CJ SKU.
+
+        2. Creating the Stripe Checkout Session.
+
+        3. Keeping all secret API keys
+           safely on the server.
+
+        The browser should never contain:
+
+        CJ_API_KEY
+        SKU_WHITE
+        SKU_BLACK
+        Stripe secret key
       */
 
       noteEl.classList.add('show');
+
     }
 
     renderVariant();
+
     renderQty();
+
   </script>
 
 </body>
